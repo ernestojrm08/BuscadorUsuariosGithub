@@ -1,21 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es" data-theme="light">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buscador de usuarios en Github</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Buscador de Usuarios GitHub</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <main>
-        <h1>Buscador de usuarios en github</h1>
-        <input type="text"
-        id="searchInput" 
-        placeholder="Escribe un nombre de usuario..."
-        aria-label="Buscar usuario de github"
-        />
-        <div id="results"></div>
-    </main>
-     <script type="module" src="js/main.js"></script>
+  <header>
+    <h1>Buscador de Usuarios GitHub</h1>
+    <button id="theme-toggle" aria-label="Cambiar tema">🌙</button>
+  </header>
+
+  <main>
+    <section class="search-container">
+      <input id="search-input" type="text" placeholder="Introduce un nombre de usuario" />
+      <button id="search-btn">Buscar</button>
+    </section>
+
+    <div id="loader" class="loader hidden"></div>
+    <section id="results-container" class="results"></section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Proyecto de Interfaz Responsive</p>
+  </footer>
+  <script type="module" src="js/main.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

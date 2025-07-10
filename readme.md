@@ -35,3 +35,19 @@ Archivos desarrollados:
 3. Enseña los resultados (por ahora) en la consola del navegador.
 
 ---
+
+## 👤 Integrante 2 (Diego Aguilar)
+
+Responsable del diseño visual y experiencia de usuario:
+
+- Maquetado de interfaz (input, tarjetas).
+- Diseño responsivo con media queries.
+- Modo claro/oscuro automático y manual.
+- Loader animado mientras se realiza la búsqueda.
+- Efectos visuales (hover, transiciones).
+
+## Archivos principales
+
+- `index.html`
+- `style.css`
+- `script.js`
