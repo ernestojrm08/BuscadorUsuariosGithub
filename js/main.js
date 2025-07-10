@@ -4,24 +4,31 @@ import { debounce } from './debounce.js';
 // Importamos la función que valida si la entrada del usuario es válida
 import { isValidInput } from './validate.js';
 
+// Importamos la función que conecta con la API de GitHub
+import { searchGitHubUsers } from './api.js';
+
 // Obtenemos el input del DOM por su ID
 const searchInput = document.getElementById('searchInput');
 
-// Esta función se ejecutará cuando el usuario escriba (después del debounce)
-const handleSearch = (event) => {
-  // Obtenemos el texto escrito y eliminamos espacios al inicio/final
+// Esta función se ejecutará cuando el usuario deje de escribir (debounce)
+const handleSearch = async (event) => {
   const query = event.target.value.trim();
 
-  // Validamos que la entrada sea válida 
+  // Validamos el input (mínimo 3 caracteres y sin símbolos raros)
   if (!isValidInput(query)) {
-    console.log(' Entrada inválida !');
+    console.log('⛔ Entrada inválida !');
     return;
   }
 
-  // Si es válida, mostramos en consola lo que el usuario está buscando
-  console.log('Buscando:', query);
+  // Mostramos lo que está buscando el usuario
+  console.log('🔍 Buscando:', query);
+
+  // Llamamos a la API de GitHub para obtener usuarios relacionados
+  const users = await searchGitHubUsers(query);
+
+  // Mostramos en consola los usuarios que nos devolvió la API
+  console.log('✅ Usuarios encontrados:', users);
 };
 
-// Asociamos el evento 'input' con la función de búsqueda, usando debounce
-// Esto evita que la función se ejecute en cada tecla presionada y solo lo haga cuando el usuario deje de escribir por 500ms
+// Asociamos el evento al input, con debounce para optimizar peticiones
 searchInput.addEventListener('input', debounce(handleSearch, 500));
