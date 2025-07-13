@@ -1,5 +1,5 @@
 export function renderResults(users) {
-  const container = document.getElementById('results');
+  const container = document.getElementById('results-container');
   container.innerHTML = ''; // Limpiar resultados anteriores
 
   if (!users || users.length === 0) {
@@ -12,10 +12,12 @@ export function renderResults(users) {
     const userCard = `
       <article class="user-card" tabindex="0">
         <img src="${user.avatar_url}" alt="Avatar de ${user.login}">
-        <h2>${user.name || 'Sin nombre'}</h2>
+        <div class="user-info">
+          <h2>${user.name || 'Sin nombre'}</h2>
         <p>@${user.login}</p>
         <p>Empresa: ${user.company || 'No especificada'}</p>
-        <p>Repos: ${user.public_repos}</p>
+        <p>Repositorios públicos: ${user.public_repos}</p>
+        </div>
       </article>
     `;
     container.insertAdjacentHTML('beforeend', userCard);

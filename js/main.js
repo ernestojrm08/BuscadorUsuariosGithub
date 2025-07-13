@@ -26,6 +26,7 @@ const handleSearch = async (event) => {
 
   try {
     const users = await searchGitHubUsers(query);
+    console.log ('mostrando usuarios correctamente', users)
     if (users.length === 0) {
       showError('no-results');
     } else {
